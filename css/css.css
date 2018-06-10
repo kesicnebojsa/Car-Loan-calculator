@@ -1,0 +1,116 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url('https://fonts.googleapis.com/css?family=Lato|Ubuntu');
+
+#car_loan_main_wrapper div,#car_loan_main_wrapper span,#car_loan_main_wrapper applet,#car_loan_main_wrapper object,#car_loan_main_wrapper iframe,#car_loan_main_wrapper
+h1,#car_loan_main_wrapper h2,#car_loan_main_wrapper h3,#car_loan_main_wrapper h4,#car_loan_main_wrapper h5,#car_loan_main_wrapper h6,#car_loan_main_wrapper p,#car_loan_main_wrapper blockquote,#car_loan_main_wrapper pre,#car_loan_main_wrapper
+a,#car_loan_main_wrapper abbr,#car_loan_main_wrapper acronym,#car_loan_main_wrapper address,#car_loan_main_wrapper big,#car_loan_main_wrapper cite,#car_loan_main_wrapper code,#car_loan_main_wrapper
+del,#car_loan_main_wrapper dfn,#car_loan_main_wrapper em,#car_loan_main_wrapper img,#car_loan_main_wrapper ins,#car_loan_main_wrapper kbd,#car_loan_main_wrapper q,#car_loan_main_wrapper s,#car_loan_main_wrapper samp,#car_loan_main_wrapper
+small,#car_loan_main_wrapper strike,#car_loan_main_wrapper strong,#car_loan_main_wrapper sub,#car_loan_main_wrapper sup,#car_loan_main_wrapper tt,#car_loan_main_wrapper var,#car_loan_main_wrapper
+b,#car_loan_main_wrapper u,#car_loan_main_wrapper i,#car_loan_main_wrapper center,#car_loan_main_wrapper
+dl,#car_loan_main_wrapper dt,#car_loan_main_wrapper dd,#car_loan_main_wrapper ol,#car_loan_main_wrapper ul,#car_loan_main_wrapper li,#car_loan_main_wrapper
+fieldset,#car_loan_main_wrapper form,#car_loan_main_wrapper label,#car_loan_main_wrapper legend,#car_loan_main_wrapper
+table,#car_loan_main_wrapper caption,#car_loan_main_wrapper tbody,#car_loan_main_wrapper tfoot,#car_loan_main_wrapper thead,#car_loan_main_wrapper tr,#car_loan_main_wrapper th,#car_loan_main_wrapper td,#car_loan_main_wrapper
+article,#car_loan_main_wrapper aside,#car_loan_main_wrapper canvas,#car_loan_main_wrapper details,#car_loan_main_wrapper embed,#car_loan_main_wrapper 
+figure,#car_loan_main_wrapper figcaption,#car_loan_main_wrapper footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_main_wrapper 
+menu,#car_loan_main_wrapper nav,#car_loan_main_wrapper output,#car_loan_main_wrapper ruby,#car_loan_main_wrapper section,#car_loan_main_wrapper summary,#car_loan_main_wrapper
+time,#car_loan_main_wrapper mark,#car_loan_main_wrapper audio,#car_loan_main_wrapper video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+#car_loan_main_wrapper article,#car_loan_main_wrapper aside,#car_loan_main_wrapper details,#car_loan_main_wrapper figcaption,#car_loan_main_wrapper figure,#car_loan_main_wrapper 
+footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_main_wrapper menu,#car_loan_main_wrapper nav,#car_loan_main_wrapper section {
+	display: block;
+}
+#car_loan_main_wrapper {
+	font-family: 'Ubuntu', sans-serif;
+}
+#car_loan_main_wrapper {
+	line-height: 1;
+	width: 700px;
+	margin: 0 auto;
+	border: 2px solid #000;
+	margin-top: 30px;
+}
+#car_loan_main_wrapper blockquote,#car_loan_main_wrapper q {
+	quotes: none;
+}
+#car_loan_main_wrapper blockquote:before,#car_loan_main_wrapper blockquote:after,
+#car_loan_main_wrapper q:before,#car_loan_main_wrapper q:after {
+	content: '';
+	content: none;
+}
+#car_loan_main_wrapper table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+#car_loan_main_wrapper * {
+	box-sizing: content-box;
+}
+
+/* Basic tag styling */
+#car_loan_main_wrapper b {
+	font-weight: 800;
+}
+#car_loan_main_wrapper input {
+	height: 40px;
+	width: 300px;
+	border:1px solid #d5dee5;
+	font-size: 18px;
+	text-align:left;
+	padding-left: 10px;
+}
+#car_loan_main_wrapper input:hover {
+	background-color: #efefef;
+	cursor: pointer;
+}
+#car_loan_main_wrapper h1 {
+	font-size: 28px;
+	margin:40px 0px 10px 30px;
+	font-weight: 600;
+	text-align: left;
+	letter-spacing: 2px;
+	width: 640px;
+	border-bottom: 2px solid #efefef;
+}
+#car_loan_main_wrapper h2 {
+	font-size: 22px;
+	margin: 5px 0px;
+	font-weight: 600;
+	color:#f46e42; 
+}
+#car_loan_main_wrapper h4 {
+	font-size: 20px;
+	margin: 20px 0px 20px 30px;
+	font-weight: 600;
+	text-align: left;
+}
+#car_loan_main_wrapper p {
+    margin: 5px 0px;
+	padding: 0;
+	border: 0;
+	font-size: 16px !important;
+	font: inherit;
+	color: #000;
+	font-weight: 600;
+}
+#car_loan_main_wrapper .allInputsMain {
+	margin:10px 0px 20px 30px;
+}
+#car_loan_main_wrapper .inlineBlock {
+	display: inline-block;
+}
+#car_loan_main_wrapper .allOutputMain {
+    margin:10px 0px 20px 30px;
+}
+#car_loan_main_wrapper #car_loan_main_outputs {
+	vertical-align: top;
+}
