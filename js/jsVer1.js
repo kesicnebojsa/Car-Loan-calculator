@@ -10,19 +10,42 @@ function getInputValues() {
 	years = parseInt ( $('#car_loan_input_main_5 input').val() );
 
 
-	console.log(`inputs:`);
-	console.log( price );
-	console.log( downPay );
-	console.log( tradeIn );
-	console.log( interestRate );
-	console.log( years );
+	// console.log(`inputs:`);
+	// console.log( price );
+	// console.log( downPay );
+	// console.log( tradeIn );
+	// console.log( interestRate );
+	// console.log( years );
 
 }
 
 
 
-
+var mortgageRepayment, totalPaid, interestPaid;
 function calculate() {
+	//Loan Amount
+	var loanAmount = price - downPay - tradeIn;
+	$('#car_loan_output_main_1 h2 span').text(`$${loanAmount.toLocaleString('es-US', { maximumFractionDigits : 0 })}` );
+
+	// monthly repayment
+	mortgageRepayment = ( loanAmount * interestRate * Math.pow( 1 + interestRate , years*12) ) / ( Math.pow( 1 + interestRate , years*12 ) - 1 );
+	$('#car_loan_output_main_2 h2 span').text(`$${mortgageRepayment.toLocaleString('es-US', { maximumFractionDigits : 2 , minimumFractionDigits : 2 })}` );
+
+	// total amount paid
+	totalPaid = mortgageRepayment * years * 12;
+	$('#car_loan_output_main_3 h2 span').text(`$${totalPaid.toLocaleString('es-US', { maximumFractionDigits : 2 , minimumFractionDigits : 2 })}` );
+
+	// interest paid
+	interestPaid = totalPaid - loanAmount;
+	$('#car_loan_output_main_4 h2 span').text(`$${interestPaid.toLocaleString('es-US', { maximumFractionDigits : 2 , minimumFractionDigits : 2 })}` );
+
+
+
+
+
+
+
+	// console.log(mortgageRepayment);
 
 }
 
