@@ -21,10 +21,10 @@ function getInputValues() {
 
 
 
-var mortgageRepayment, totalPaid, interestPaid;
+var mortgageRepayment, totalPaid, interestPaid, loanAmount;
 function calculate() {
 	//Loan Amount
-	var loanAmount = price - downPay - tradeIn;
+	loanAmount = price - downPay - tradeIn;
 	$('#car_loan_output_main_1 h2 span').text(`$${loanAmount.toLocaleString('es-US', { maximumFractionDigits : 0 })}` );
 
 	// monthly repayment
@@ -40,11 +40,6 @@ function calculate() {
 	$('#car_loan_output_main_4 h2 span').text(`$${interestPaid.toLocaleString('es-US', { maximumFractionDigits : 2 , minimumFractionDigits : 2 })}` );
 
 
-
-
-
-
-
 	// console.log(mortgageRepayment);
 
 }
@@ -53,10 +48,62 @@ function calculate() {
 
 function writeResults() {
 	
+	var chart = AmCharts.makeChart( "chartdiv", {
+	  "type": "pie",
+	  "theme": "light",
+	  "dataProvider": [ {
+	    "label": "Principal",
+	    "value": loanAmount
+	  }, {
+	    "label": "Interest",
+	    "value": interestPaid
+	  }],
+	  "valueField": "value",
+	  "titleField": "label",
+	   "balloon":{
+	   "fixedPosition":true
+	  }
+	} );
+
+	var dataForLineChart = [{
+			"year": 0,
+	        "payment": 0,
+	        "interest": 0 
+		}];
+	for (var i = 0; i < years; i++) {
+		dataForLineChart.push({
+			"year": i+1,
+	        "payment": Math.round( (i+1)*12*mortgageRepayment ),
+	        "interest": Math.round( (i+1)*2*mortgageRepayment )
+		});
+	}
+
+	var lineChart = AmCharts.makeChart("linechartdiv", {
+	    "type": "serial",
+	    "theme": "light",
+	    "dataProvider": dataForLineChart,
+	    "graphs": [{
+	        "balloonText": "[[category]]<br><b><span style='font-size:14px;'>payment:[[payment]]</span></b>",
+	        "bullet": "round",
+	        "valueField": "payment",
+	        "type": "line",
+	        "lineColor": "#8d1cc6"
+	    },{
+	        "balloonText": "[[category]]<br><b><span style='font-size:14px;'>interest:[[interest]]</span></b>",
+	        "bullet": "round",
+	        "valueField": "interest",
+	        "type": "line"
+	    }],
+	    "chartCursor": {
+	        "fullWidth":true,
+	        "valueLineEabled":true,
+	        "valueLineBalloonEnabled":true,
+	        "valueLineAlpha":0.5,
+	        "cursorAlpha":0
+	    },
+	    "categoryField": "year"
+	});
 }
-
-
-
 
 $('input, select').on("change",function() {
 	getInputValues();

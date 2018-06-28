@@ -114,3 +114,11 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 #car_loan_main_wrapper #car_loan_main_outputs {
 	vertical-align: top;
 }
+
+#chartdiv, #linechartdiv {
+  width: 100%;
+  height: 500px;
+}
+#chartdiv a {
+	top: 440px !important;	
+}
