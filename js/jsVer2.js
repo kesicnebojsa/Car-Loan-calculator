@@ -22,7 +22,13 @@ function getInputValues() {
 
 
 var mortgageRepayment, totalPaid, interestPaid, loanAmount;
+var principalPaid = [0];
+var interestsMonthly = [0];
+var interestSums = [0];
 function calculate() {
+	principalPaid = [0];
+	interestsMonthly = [0];
+	interestSums = [0];
 	//Loan Amount
 	loanAmount = price - downPay - tradeIn;
 	$('#car_loan_output_main_1 h2 span').text(`$${loanAmount.toLocaleString('es-US', { maximumFractionDigits : 0 })}` );
@@ -39,18 +45,32 @@ function calculate() {
 	interestPaid = totalPaid - loanAmount;
 	$('#car_loan_output_main_4 h2 span').text(`$${interestPaid.toLocaleString('es-US', { maximumFractionDigits : 2 , minimumFractionDigits : 2 })}` );
 
+	// all payments
+	for (var i = 0; i < (years * 12); i++) {
+		interestsMonthly.push( ( loanAmount - principalPaid[i] ) * interestRate  );
+		principalPaid.push( principalPaid[i] + mortgageRepayment - interestsMonthly[i+1] );
+		interestSums.push( interestSums[i] + interestsMonthly[i+1] );
+	}
+
+	console.log('principalPaid', principalPaid);
+	console.log('interestsMonthly', interestsMonthly);
+	console.log('interestSums', interestSums);
 
 	// console.log(mortgageRepayment);
 
 }
-
-
 
 function writeResults() {
 	
 	var chart = AmCharts.makeChart( "chartdiv", {
 	  "type": "pie",
 	  "theme": "light",
+	  "titles": [
+			{
+				"text": "Loan Breakdown",
+				"size": 15
+			}
+		],
 	  "dataProvider": [ {
 	    "label": "Principal",
 	    "value": loanAmount
@@ -68,40 +88,65 @@ function writeResults() {
 	var dataForLineChart = [{
 			"year": 0,
 	        "payment": 0,
-	        "interest": 0 
+	        "interest": 0,
+	        "balance": loanAmount 
 		}];
 	for (var i = 0; i < years; i++) {
 		dataForLineChart.push({
 			"year": i+1,
 	        "payment": Math.round( (i+1)*12*mortgageRepayment ),
-	        "interest": Math.round( (i+1)*2*mortgageRepayment )
+	        "interest": Math.round( interestSums[(i*12)+12] ),
+	        "balance": Math.round( loanAmount - principalPaid[(i*12)+12] )
 		});
 	}
 
 	var lineChart = AmCharts.makeChart("linechartdiv", {
-	    "type": "serial",
+	    "type": "xy",
 	    "theme": "light",
+	    "titles": [
+			{
+				"text": "Amortization Graph",
+				"size": 15
+			}
+		],
 	    "dataProvider": dataForLineChart,
 	    "graphs": [{
-	        "balloonText": "[[category]]<br><b><span style='font-size:14px;'>payment:[[payment]]</span></b>",
+	    	"type": "smoothedLine",
+	        "balloonText": "Year:[[year]]<br><b><span style='font-size:14px;'>payment:[[payment]]</span></b>",
 	        "bullet": "round",
-	        "valueField": "payment",
-	        "type": "line",
-	        "lineColor": "#8d1cc6"
+	        "yField": "payment",
+	        "xField": "year",
+	        "lineColor": "#8d1cc6",
+	        "title": "payment"
 	    },{
-	        "balloonText": "[[category]]<br><b><span style='font-size:14px;'>interest:[[interest]]</span></b>",
+	        "balloonText": "Year:[[year]]<br><b><span style='font-size:14px;'>interest:[[interest]]</span></b>",
 	        "bullet": "round",
-	        "valueField": "interest",
-	        "type": "line"
+	        "xField": "year",
+	        "yField": "interest",
+	        "title": "interest"
+	    },{
+	        "balloonText": "Year:[[year]]<br><b><span style='font-size:14px;'>balance:[[balance]]</span></b>",
+	        "bullet": "round",
+	        "xField": "year",
+	        "yField": "balance",
+	        "title": "balance"
 	    }],
+	    "legend":{
+		   	"horizontalGap": 10,
+		    "maxColumns": 1,
+		    "position": "bottom",
+		    "useGraphSettings": true,
+		    "markerSize": 10,
+		    "marginTop": 20,
+		    "labelText": "[[title]]"
+		},
 	    "chartCursor": {
 	        "fullWidth":true,
 	        "valueLineEabled":true,
 	        "valueLineBalloonEnabled":true,
 	        "valueLineAlpha":0.5,
 	        "cursorAlpha":0
-	    },
-	    "categoryField": "year"
+	    }
 	});
 }
 
