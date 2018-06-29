@@ -191,7 +191,32 @@ $('#gen_link_btn').click(function(e){
 			console.log(result);
 			if(result != '') {
 				$("input[name='Link']").val(result);
-				$("input[name='Link']").css('display', 'block');
+				$("input[name='Link']").css('display', 'block');				
 			}
 		});
 });
+
+// function copy(selector){
+//   var $temp = $("<div>");
+//   $("body").append($temp);
+//   $temp.attr("contenteditable", true)
+//        .html($(selector).val()).select()
+//        .on("focus", function() { document.execCommand('selectAll',false,null) })
+//        .focus();
+//   document.execCommand("copy");
+//   console.log('sada je: ',$temp.html());
+//   $temp.remove();
+// }
+
+function copy(selector){	
+	$(selector).select();
+    // .on("focus", function() { document.execCommand('selectAll',false,null) })
+    // .focus();
+  	document.execCommand("copy");
+  	// console.log('sada je: ',$temp.html());
+}
+
+$('#link_input').on("click", function(){
+	var id = '#link_input';
+	copy(id);
+})

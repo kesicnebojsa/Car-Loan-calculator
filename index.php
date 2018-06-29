@@ -17,7 +17,8 @@ foreach ($_GET as $key => $value) {
 	if(isset($_GET[$key]) && is_numeric($value)) {
 		$_GET[$key] = h(trim($value));
 	}else{
-		header('Location: index.php');
+		header('Location: ' . HOME);
+		die;
 	}
 }
 
@@ -123,6 +124,6 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://www.amcharts.com/lib/3/pie.js"></script>
 <!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-<script src="js/jsVer2.js"></script>
+<script src="js/jsVer3.js"></script>
 </body>
 </html>
