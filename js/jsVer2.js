@@ -176,3 +176,22 @@ $(function(){
   });
 
 });
+
+// AJAX - GENERATE LINK
+$('#gen_link_btn').click(function(e){
+	e.preventDefault();
+	$.post("index.php",{
+		'generateLink' 			: 'true', 
+		'Vehicle_price' 		: $("input[name='Vehicle_price']").val(),
+		'Down_payment' 			: $("input[name='Down_payment']").val(),
+		'Trade_in_value' 		: $("input[name='Trade_in_value']").val(),
+		'Annual_interest_rate' 	: $("input[name='Annual_interest_rate']").val(),
+		'Loan_years' 			: $("input[name='Loan_years']").val()
+		}).done(function(result) {
+			console.log(result);
+			if(result != '') {
+				$("input[name='Link']").val(result);
+				$("input[name='Link']").css('display', 'block');
+			}
+		});
+});
