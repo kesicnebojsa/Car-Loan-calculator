@@ -3,7 +3,7 @@ define('HOME', 'http://localhost/Car-Loan-calculator/');
 
 //  html escape
 function h($string=''){
-	return htmlentities($string,ENT_QUOTES,'UTF-8',false);
+	return htmlspecialchars($string,ENT_QUOTES,'UTF-8',false);
 }
 // test die
 function die_r($v){
@@ -15,7 +15,7 @@ function die_r($v){
 
 foreach ($_GET as $key => $value) {
 	if(isset($_GET[$key]) && is_numeric($value)) {
-		$_GET[$key] = h(trim($value));
+		$_GET[$key] = trim($value);
 	}else{
 		header('Location: ' . HOME);
 		die;
@@ -25,7 +25,7 @@ foreach ($_GET as $key => $value) {
 ###### REQUEST TO GENERATE LINK ########
 
 if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
-	//die_r($_POST);
+
 	$link = HOME;
 	$search_array = ['Vehicle_price','Down_payment','Trade_in_value','Annual_interest_rate','Loan_years'];
 
@@ -36,6 +36,9 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 
 	foreach ($_POST as $key => $value) {
+
+		$_POST[$key] = trim($value);
+
 		if($key === 'Vehicle_price' && is_numeric($value)) {
 			$link .= '?Vehicle_price='. urlencode($value);
 		}
@@ -64,23 +67,23 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <form method="post">
-<p><input id="gen_link_btn" type="submit" name='generateLink' value="Generate Link"></p>
-<input id="link_input" style="display: none" type="text" name='Link' value="<?= $link ?? ''; ?>">
+<p><input id="gen_link_btn" type="submit" name="generateLink" value="Generate Link"></p>
+<input id="link_input" style="display: none" type="text" name="Link" value="<?= h($link ?? ''); ?>">
 </form>
 	<div id="car_loan_main_wrapper">
 		<h1>Car Loan Caculator</h1>
 	    <div id="car_loan_main_inputs" class="inlineBlock">
 			<div id="car_loan_input_main_1" class="allInputsMain">
 				<p>Vehicle price</p>
-				<input  class="" type="number" name="Vehicle_price" value="<?= $_GET['Vehicle_price'] ?? '8000'; ?>" placeholder="$">
+				<input  class="" type="number" name="Vehicle_price" value="<?= h($_GET['Vehicle_price'] ?? '8000'); ?>" placeholder="$">
 			</div>
 			<div id="car_loan_input_main_2" class="allInputsMain">
 				<p>Down payment</p>
-				<input  class="" type="number" name="Down_payment" value="<?= $_GET['Down_payment'] ?? '1000'; ?>" placeholder="$">
+				<input  class="" type="number" name="Down_payment" value="<?= h($_GET['Down_payment'] ?? '1000'); ?>" placeholder="$">
 			</div>
 			<div id="car_loan_input_main_3" class="allInputsMain">
 				<p>Trade in value</p>
-				<input  class="" type="number" name="Trade_in_value" value="<?= $_GET['Trade_in_value'] ?? '2000'; ?>" placeholder="$">
+				<input  class="" type="number" name="Trade_in_value" value="<?= h($_GET['Trade_in_value'] ?? '2000'); ?>" placeholder="$">
 			</div>
 			<div id="car_loan_output_main_1" class="allOutputMain">
 				<p>Loan amount</p>
@@ -88,11 +91,11 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 			</div>
 			<div id="car_loan_input_main_4" class="allInputsMain">
 				<p>Annual interest rate</p>
-				<input  class="" type="number" name="Annual_interest_rate" value="<?= $_GET['Annual_interest_rate'] ?? '3.35'; ?>" placeholder="%">
+				<input  class="" type="number" name="Annual_interest_rate" value="<?= h($_GET['Annual_interest_rate'] ?? '3.35'); ?>" placeholder="%">
 			</div>
 			<div id="car_loan_input_main_5" class="allInputsMain">
 				<p>Loan (years)</p>
-				<input  class="" type="number" name="Loan_years" value="<?= $_GET['Loan_years'] ?? '5'; ?>" placeholder="years">
+				<input  class="" type="number" name="Loan_years" value="<?= h($_GET['Loan_years'] ?? '5'); ?>" placeholder="years">
 			</div>
 		</div>
 		<div id="car_loan_main_outputs" class="inlineBlock">
