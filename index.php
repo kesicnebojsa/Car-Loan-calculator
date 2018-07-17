@@ -102,7 +102,7 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 			</div>
 			<div id="car_loan_input_main_6" class="allInputsMain">
 				<p>Sales Tax</p>
-				<input  class="" type="number" name="Loan_years" value="<?= h($_GET['Loan_sales_tax'] ?? '10'); ?>" placeholder="%">
+				<input  class="" type="number" name="Loan_sales_tax" value="<?= h($_GET['Loan_sales_tax'] ?? '10'); ?>" placeholder="%">
 			</div>
 		</div>
 		<div id="car_loan_main_outputs" class="inlineBlock">
