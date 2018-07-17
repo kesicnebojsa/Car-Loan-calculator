@@ -27,7 +27,7 @@ foreach ($_GET as $key => $value) {
 if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
 	$link = HOME;
-	$search_array = ['Vehicle_price','Down_payment','Trade_in_value','Annual_interest_rate','Loan_years'];
+	$search_array = ['Vehicle_price','Down_payment','Trade_in_value','Annual_interest_rate','Loan_years','Loan_sales_tax'];
 
 	foreach ($search_array as $search_key) {
 		if(!array_key_exists($search_key, $_POST)) {
@@ -54,6 +54,9 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 		elseif($key === 'Loan_years' && is_numeric($value)) {
 			$link .= '&Loan_years='. urlencode($value);
 		}
+		elseif($key === 'Loan_sales_tax' && is_numeric($value)) {
+			$link .= '&Loan_sales_tax='. urlencode($value);
+		}
 	}
 	die($link);
 }
@@ -63,7 +66,7 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="utf-8" />
 	<title>Mortgage Calculator</title>
-	<link rel="stylesheet" href="css/cssVer2.css">
+	<link rel="stylesheet" href="css/cssVer4.css">
 </head>
 <body>
 <form method="post">
@@ -97,6 +100,10 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 				<p>Loan (years)</p>
 				<input  class="" type="number" name="Loan_years" value="<?= h($_GET['Loan_years'] ?? '5'); ?>" placeholder="years">
 			</div>
+			<div id="car_loan_input_main_6" class="allInputsMain">
+				<p>Sales Tax</p>
+				<input  class="" type="number" name="Loan_years" value="<?= h($_GET['Loan_sales_tax'] ?? '10'); ?>" placeholder="%">
+			</div>
 		</div>
 		<div id="car_loan_main_outputs" class="inlineBlock">
 			<h4>Payment details</h4>
@@ -127,6 +134,6 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://www.amcharts.com/lib/3/pie.js"></script>
 <!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-<script src="js/jsVer3.js"></script>
+<script src="js/jsVer4.js"></script>
 </body>
 </html>
