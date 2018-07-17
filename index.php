@@ -65,7 +65,7 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-	<title>Mortgage Calculator</title>
+	<title>Car Loan Calculator</title>
 	<link rel="stylesheet" href="css/cssVer4.css">
 </head>
 <body>
