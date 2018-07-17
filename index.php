@@ -1,5 +1,6 @@
 <?php
 define('HOME', 'http://localhost/Car-Loan-calculator/');
+// define('HOME', 'https://stevancuk.com/projects/Car_loan_calc/');
 
 //  html escape
 function h($string=''){
@@ -74,14 +75,14 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <input id="link_input" style="display: none" type="text" name="Link" value="<?= h($link ?? ''); ?>">
 </form>
 	<div id="car_loan_main_wrapper">
-		<h1>Car Loan Caculator</h1>
+		<h1>Car Loan Calculator</h1>
 	    <div id="car_loan_main_inputs" class="inlineBlock">
 			<div id="car_loan_input_main_1" class="allInputsMain">
 				<p>Vehicle price</p>
 				<input  class="" type="number" name="Vehicle_price" value="<?= h($_GET['Vehicle_price'] ?? '8000'); ?>" placeholder="$">
 			</div>
 			<div id="car_loan_input_main_2" class="allInputsMain">
-				<p>Down payment</p>
+				<p>Downpayment</p>
 				<input  class="" type="number" name="Down_payment" value="<?= h($_GET['Down_payment'] ?? '1000'); ?>" placeholder="$">
 			</div>
 			<div id="car_loan_input_main_3" class="allInputsMain">
