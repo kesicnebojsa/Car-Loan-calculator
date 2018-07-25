@@ -36,7 +36,7 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 	line-height: 1;
 	width: 700px;
 	margin: 0 auto;
-	border: 2px solid #000;
+	border: 2px solid #707070;
 	margin-top: 30px;
 }
 #car_loan_main_wrapper blockquote,#car_loan_main_wrapper q {
@@ -63,10 +63,11 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 #car_loan_main_wrapper input {
 	height: 40px;
 	width: 300px;
-	border:1px solid #d5dee5;
+	border:1px solid #f46e42;
 	font-size: 18px;
 	text-align:left;
 	padding-left: 10px;
+	outline-color: #ff1500;
 }
 #car_loan_main_wrapper input:hover {
 	background-color: #efefef;
@@ -74,12 +75,14 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 }
 #car_loan_main_wrapper h1 {
 	font-size: 28px;
+	color: #707070;
 	margin:40px 0px 10px 30px;
 	font-weight: 600;
 	text-align: left;
 	letter-spacing: 2px;
 	width: 640px;
-	border-bottom: 2px solid #efefef;
+	border-bottom: 2px solid #f46e42;
+	padding-bottom: 5px;
 }
 #car_loan_main_wrapper h2 {
 	font-size: 22px;
@@ -99,7 +102,7 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 	border: 0;
 	font-size: 16px !important;
 	font: inherit;
-	color: #000;
+	color: #707070;
 	font-weight: 600;
 }
 #car_loan_main_wrapper .allInputsMain {
@@ -122,3 +125,124 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 #chartdiv a {
 	top: 440px !important;	
 }
+#car_loan_main_wrapper #gen_link_btn_p {
+	width: 212px;
+}
+#car_loan_main_wrapper #gen_link_btn {
+	width: 196px;
+	text-align: center;
+	border: none;
+	border-radius: 8px;
+	background-color:#f46e42;
+	color: #fff;
+	outline: none; 
+}
+#car_loan_main_wrapper #link_input {
+	width: 200px;
+}
+#car_loan_main_wrapper #link_input:hover {
+	cursor: copy;
+}
+@media (max-width: 800px) {
+	#car_loan_main_wrapper {
+	width: 600px;
+    }
+    #car_loan_main_wrapper h1 {
+	width: 540px;
+    }
+}
+@media (max-width: 700px) {
+	#car_loan_main_wrapper input {
+	width: 200px;
+	}
+	#car_loan_main_wrapper {
+	width: 500px;
+    }
+    #car_loan_main_wrapper h1 {
+	width: 440px;
+    }
+}
+@media (max-width: 600px) {
+	#car_loan_main_wrapper input {
+	width: 150px;
+	}
+	#car_loan_main_wrapper {
+	width: 450px;
+    }
+    #car_loan_main_wrapper h1 {
+	width: 390px;
+    }
+    #car_loan_main_wrapper #gen_link_btn_p {
+	width: 162px;
+    }
+	#car_loan_main_wrapper #gen_link_btn {
+	width: 146px;
+	}
+	#car_loan_main_wrapper #link_input {
+	width: 150px;
+	}
+}
+@media (max-width: 500px) {
+	#car_loan_main_wrapper .inlineBlock {
+	display: block;
+	}
+	#car_loan_main_wrapper input {
+	width: 300px;
+	}
+	#car_loan_main_wrapper {
+	width: 350px;
+    }
+    #car_loan_main_wrapper h1 {
+	width: 300px;
+    }
+    #car_loan_main_wrapper #car_loan_output_main_5 {
+    margin: 0px;
+    }
+    #car_loan_main_wrapper #gen_link_btn_p {
+	width: 232px;
+	margin: 0 auto;
+    }
+	#car_loan_main_wrapper #gen_link_btn {
+	width: 216px;
+	margin: 0 auto;
+	}
+	#car_loan_main_wrapper #link_input {
+	width: 220px;
+    margin: 0 auto;
+	}
+	#car_loan_main_wrapper .allInputsMain {
+    margin-left: 15px;
+    }
+}
+@media (max-width: 400px) {
+	#car_loan_main_wrapper input {
+	width: 250px;
+	}
+	#car_loan_main_wrapper {
+	width: 300px;
+    }
+    #car_loan_main_wrapper h1 {
+	width: 240px;
+	font-size: 20px;
+    }
+	#car_loan_main_wrapper .allInputsMain {
+    margin-left: 10px;
+    }
+}
+@media (max-width: 340px) {
+	#car_loan_main_wrapper input {
+	width: 220px;
+	}
+	#car_loan_main_wrapper {
+	width: 250px;
+    }
+    #car_loan_main_wrapper h1 {
+	width: 210px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	margin-top: 30px;
+    }
+	#car_loan_main_wrapper .allInputsMain {
+    margin-left: 10px;
+    }
+}							

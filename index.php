@@ -59,14 +59,11 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-	<title>Mortgage Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Car Loan Calculator</title>
 	<link rel="stylesheet" href="css/cssVer2.css">
 </head>
 <body>
-<form method="post">
-<p><input id="gen_link_btn" type="submit" name='generateLink' value="Generate Link"></p>
-<input id="link_input" style="display: none" type="text" name='Link' value="<?= $link ?? ''; ?>">
-</form>
 	<div id="car_loan_main_wrapper">
 		<h1>Car Loan Caculator</h1>
 	    <div id="car_loan_main_inputs" class="inlineBlock">
@@ -108,6 +105,12 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 			<div id="car_loan_output_main_4" class="allOutputMain">
 				<p>Total interest paid</p>
 				<h2><span>1,234.20</span></h2>
+			</div>
+			<div id="car_loan_output_main_5" class="allOutputMain">
+				<form method="post">
+					<p id="gen_link_btn_p"><input id="gen_link_btn" type="submit" name='generateLink' value="Generate Link"></p>
+					<input id="link_input" style="display: none" type="text" name='Link' value="<?= $link ?? ''; ?>">
+				</form>
 			</div>
 		</div>
 		<div id="chartdiv"></div>
