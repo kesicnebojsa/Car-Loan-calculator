@@ -1,13 +1,14 @@
 "use strict";
 
 // Input values are read after each user change in inputs
-var price, downPay, tradeIn, interestRate, years;
+var price, downPay, tradeIn, interestRate, years, tax;
 function getInputValues() {
 	price = parseInt( $('#car_loan_input_main_1 input').val() );
 	downPay = parseInt ( $('#car_loan_input_main_2 input').val() );
 	tradeIn = parseInt ( $('#car_loan_input_main_3 input').val() );
 	interestRate = parseFloat ( $('#car_loan_input_main_4 input').val() ) / 12 / 100;
 	years = parseInt ( $('#car_loan_input_main_5 input').val() );
+	tax = parseInt ( $('#car_loan_input_main_6 input').val() ) / 100;
 
 
 	// console.log(`inputs:`);
@@ -30,7 +31,7 @@ function calculate() {
 	interestsMonthly = [0];
 	interestSums = [0];
 	//Loan Amount
-	loanAmount = price - downPay - tradeIn;
+	loanAmount = price * (1 + tax) - downPay - tradeIn;
 	$('#car_loan_output_main_1 h2 span').text(`$${loanAmount.toLocaleString('es-US', { maximumFractionDigits : 0 })}` );
 
 	// monthly repayment
@@ -186,7 +187,8 @@ $('#gen_link_btn').click(function(e){
 		'Down_payment' 			: $("input[name='Down_payment']").val(),
 		'Trade_in_value' 		: $("input[name='Trade_in_value']").val(),
 		'Annual_interest_rate' 	: $("input[name='Annual_interest_rate']").val(),
-		'Loan_years' 			: $("input[name='Loan_years']").val()
+		'Loan_years' 			: $("input[name='Loan_years']").val(),
+		'Loan_sales_tax' 			: $("input[name='Loan_sales_tax']").val()
 		}).done(function(result) {
 			console.log(result);
 			if(result != '') {
