@@ -178,9 +178,13 @@ $(function(){
 
 });
 
+var animInfoTimeout;
 // AJAX - GENERATE LINK
 $('#gen_link_btn').click(function(e){
 	e.preventDefault();
+	var newHTML = `<div class="abs_info_div">Link Made!</div>`;
+	$('#car_loan_output_main_5').append(newHTML);
+	$('.abs_info_div:last').addClass('infoLinkAnim');
 	$.post("index.php",{
 		'generateLink' 			: 'true', 
 		'Vehicle_price' 		: $("input[name='Vehicle_price']").val(),
@@ -218,7 +222,10 @@ function copy(selector){
   	// console.log('sada je: ',$temp.html());
 }
 
-$('#link_input').on("click", function(){
+$('#link_input').on("click", function(e){
 	var id = '#link_input';
 	copy(id);
+	var newHTMLCopy = `<div class="abs_info_div">Copied to Clipboard!</div>`;
+	$('#car_loan_output_main_5').append(newHTMLCopy);
+	$('.abs_info_div:last').addClass('infoLinkAnim');
 })

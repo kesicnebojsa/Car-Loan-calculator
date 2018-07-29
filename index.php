@@ -68,15 +68,10 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Car Loan Calculator</title>
-	<link rel="stylesheet" href="css/cssVer4.css">
+	<link rel="stylesheet" href="css/cssVer5.css">
 </head>
 <body>
-	<form method="post">
-		<p>
-			<input id="gen_link_btn" type="submit" name="generateLink" value="Generate Link">
-		</p>
-		<input id="link_input" style="display: none" type="text" name="Link" value="<?= h($link ?? ''); ?>">
-	</form>
+
 	<div id="car_loan_main_wrapper">
 		<h1>Car Loan Calculator</h1>
 	    <div id="car_loan_main_inputs" class="inlineBlock">
@@ -124,6 +119,7 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 				<h2><span>1,234.20</span></h2>
 			</div>
 			<div id="car_loan_output_main_5" class="allOutputMain">
+				<div class="abs_info_div">Link Made!</div>
 				<form method="post">
 					<p id="gen_link_btn_p"><input id="gen_link_btn" type="submit" name='generateLink' value="Generate Link"></p>
 					<input id="link_input" style="display: none" type="text" name='Link' value="<?= $link ?? ''; ?>">
@@ -144,6 +140,6 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <script src="https://www.amcharts.com/lib/3/pie.js"></script>
 <!-- <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script> -->
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-<script src="js/jsVer4.js"></script>
+<script src="js/jsVer5.js"></script>
 </body>
 </html>

@@ -125,6 +125,49 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 #chartdiv a {
 	top: 440px !important;	
 }
+#car_loan_output_main_5 {
+	position: relative;
+}
+#car_loan_main_wrapper .abs_info_div {
+	position: absolute;
+	font-size: 22px;
+	font-weight: 500;
+	color: #fca88d;
+	top: 130px;
+	left: 50px;
+	width: 112px;
+	text-align: center;
+	opacity: 0;
+}
+
+#car_loan_main_wrapper #car_loan_output_main_5 .infoLinkAnim {
+	-webkit-animation-name: fadeoutTop; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-delay: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: fadeoutTop;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-timing-function: ease;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes fadeoutTop {
+    0%   {background-color:red; left:0px; top:0px;}
+    25%  {background-color:yellow; left:200px; top:0px;}
+    50%  {background-color:blue; left:200px; top:200px;}
+    75%  {background-color:green; left:0px; top:200px;}
+    100% {background-color:red; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes fadeoutTop {
+    0%   {color:#fca88d; transform: translate(0,0px); opacity: 1;}
+    20%   {color:#fca88d; transform: translate(0,0px); opacity: 1;}
+    100% {color:#e23800; transform: translate(0,-40px); opacity: .1;}
+}
+
+
+
 #car_loan_main_wrapper #gen_link_btn_p {
 	width: 212px;
 }
@@ -181,6 +224,9 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 	#car_loan_main_wrapper #link_input {
 	width: 150px;
 	}
+	#car_loan_main_wrapper .abs_info_div {
+		left: 25px;
+	}
 }
 @media (max-width: 500px) {
 	#car_loan_main_wrapper .inlineBlock {
@@ -213,6 +259,10 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 	#car_loan_main_wrapper .allInputsMain {
     margin-left: 15px;
     }
+    #car_loan_main_wrapper .abs_info_div {
+		top: -50px;
+		left: 180px;
+	}
 }
 @media (max-width: 400px) {
 	#car_loan_main_wrapper input {
@@ -245,4 +295,9 @@ footer,#car_loan_main_wrapper header,#car_loan_main_wrapper hgroup,#car_loan_mai
 	#car_loan_main_wrapper .allInputsMain {
     margin-left: 10px;
     }
+    #car_loan_main_wrapper .abs_info_div {
+    	width: 60px;
+		top: -70px;
+		left: 175px;
+	}
 }							
