@@ -66,6 +66,8 @@ function writeResults() {
 	var chart = AmCharts.makeChart( "chartdiv", {
 	  "type": "pie",
 	  "theme": "light",
+	  "labelRadius": -35,
+	  "labelText": "[[title]]: [[percents]]%",
 	  "titles": [
 			{
 				"text": "Loan Breakdown",
@@ -74,14 +76,15 @@ function writeResults() {
 		],
 	  "dataProvider": [ {
 	    "label": "Principal",
-	    "value": loanAmount
+	    "value": Math.round(loanAmount*100) / 100
 	  }, {
 	    "label": "Interest",
-	    "value": interestPaid
+	    "value": Math.round(interestPaid*100) / 100
 	  }],
 	  "valueField": "value",
 	  "titleField": "label",
-	   "balloon":{
+	  "balloonText": "[[title]]: [[percents]]% ($[[value]])",
+	  "balloon":{
 	   "fixedPosition":true
 	  }
 	} );
