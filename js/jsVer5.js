@@ -66,7 +66,7 @@ function writeResults() {
 	var chart = AmCharts.makeChart( "chartdiv", {
 	  "type": "pie",
 	  "theme": "light",
-	  "labelRadius": -35,
+	  "labelRadius": -50,
 	  "labelText": "[[title]]: [[percents]]%",
 	  "titles": [
 			{
