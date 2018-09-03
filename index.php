@@ -79,6 +79,10 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 				<p>Vehicle price</p>
 				<input  class="" type="number" name="Vehicle_price" value="<?= h($_GET['Vehicle_price'] ?? '8000'); ?>" placeholder="$">
 			</div>
+			<div id="car_loan_input_main_6" class="allInputsMain">
+				<p>Sales Tax</p>
+				<input  class="" type="number" name="Loan_sales_tax" value="<?= h($_GET['Loan_sales_tax'] ?? '10'); ?>" placeholder="%">
+			</div>
 			<div id="car_loan_input_main_2" class="allInputsMain">
 				<p>Downpayment</p>
 				<input  class="" type="number" name="Down_payment" value="<?= h($_GET['Down_payment'] ?? '1000'); ?>" placeholder="$">
@@ -98,10 +102,6 @@ if(isset($_POST['generateLink']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 			<div id="car_loan_input_main_5" class="allInputsMain">
 				<p>Loan (years)</p>
 				<input  class="" type="number" name="Loan_years" value="<?= h($_GET['Loan_years'] ?? '5'); ?>" placeholder="years">
-			</div>
-			<div id="car_loan_input_main_6" class="allInputsMain">
-				<p>Sales Tax</p>
-				<input  class="" type="number" name="Loan_sales_tax" value="<?= h($_GET['Loan_sales_tax'] ?? '10'); ?>" placeholder="%">
 			</div>
 		</div>
 		<div id="car_loan_main_outputs" class="inlineBlock">
